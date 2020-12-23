@@ -7,6 +7,13 @@ use Illuminate\Support\Manager;
 
 class FCMManager extends Manager
 {
+
+    public function __construct($app)
+    {
+        parent::__construct($app);
+        $this->app = $app;
+    }
+
     public function getDefaultDriver()
     {
         return $this->app[ 'config' ][ 'fcm.driver' ];
